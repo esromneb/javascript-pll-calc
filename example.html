@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Generic Phase-locked Loop Calculator in JavaScript</title>
+    <script src="lib/javascript-pll.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js" type="text/javascript"></script>
+
+    <style>
+        p {margin-left:20px;}
+        pre {
+            background-color: #ccc;
+            padding: 10px;
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<h1>JS PLL Calculator</h1>
+<p>Many MCU's have on-board configurable PLL's.  This tool helps you choose multiply and divide values.</p>
+<form name="f">
+    <h2>Values</h2>
+    <input name="hzin" value="19200000"> Input frequency to Pll (hz)<br>
+    <input name="hzout" value="462562500"> Desired output frequency (hz)<br>
+    <input name="mulmin" size="6" value="2"> - <input name="mulmax" size="6" value="262143"> Minimum and Maximum multiplier (integer)<br>
+    <input name="divmin" size="6" value="2"> - <input name="divmax" size="6" value="32767"> Minimum and Maximum divider (integer)<br>
+<br>
+    Output = input * ( mul / div );
+
+    <p>
+    <input type="button" onClick="JSPLL.get( $(document.f.hzin).val(), $(document.f.hzout).val(), $(document.f.mulmin).val(), $(document.f.mulmax).val(), $(document.f.divmin).val(), $(document.f.divmax).val() )" value="GO!">
+    </p>
+
+
+
+</form>
+
+</html>
